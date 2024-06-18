@@ -14,7 +14,7 @@ function kidForm() {
     childEmergencyContactName: '',
     childEmergencyContactNumber: '',
     childDismissal: '',
-    adultName: '',
+    Name: '',
     adultNumber: '',
     adultEmail: '',
     adultAddress: '',

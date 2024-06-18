@@ -20,8 +20,10 @@ function App() {
     guardianAddress: '',
     guardianChurch: '',
     guardianGuest: '',
-    photoPermission: '',
+    photoPermission: ''
   })
+
+  // const [choice, setChoice] = useState(true);
 
   const onChangeHandler = (event) =>{
     setFormData(()=>({
@@ -30,9 +32,14 @@ function App() {
     }))
   }
 
-  const onSubmitHandler = (event) =>{
-    console.log(event)
-  }
+  // const buttonClickHandler = (event) =>{
+  //   if (event.target.value === "yes") return "yes";
+  //   else return "no";
+  // }
+
+  // const onSubmitHandler = (event) =>{
+  //   console.log(event)
+  // }
 
   return (
     <div className="kidForm">
@@ -48,10 +55,10 @@ function App() {
         </Container>
 
         <Container>  
-          <Form onSubmit={onSubmitHandler}>
+          <Form>
             {/* CHILD INFORMATION FORM AREA */}
             <Row>
-              <Col md={3}>
+              <Col lg={6}>
                 <Form.Group>
                   <Form.Label>Child's Information</Form.Label>
                   <Form.Control 
@@ -111,8 +118,8 @@ function App() {
 
             {/* PARENT INFORMATION FORM AREA */}
 
-            <Col md={3}>
-                <Form.Group controlId="formEmail">
+            <Col md={6}>
+                <Form.Group>
                 <Form.Label>Parent/Guardian Information</Form.Label>
                 <Form.Control 
                     type="text" 
@@ -140,7 +147,6 @@ function App() {
                     placeholder="Address, if different from child" 
                     name='guardianAddress'
                     onChange={onChangeHandler}
-                    required
                   />
                 <Form.Text className="text">Do You Attend Church?</Form.Text>
                 <Form.Control 
@@ -156,22 +162,31 @@ function App() {
                     placeholder="Who are you a guest of?" 
                     name='guardianGuest'
                     onChange={onChangeHandler}
-                    required
                   />
-                <Form.Text className="text">May we have permission to photograph your child for promotional purposes?</Form.Text>
-                <div className="btn-group" role="group" aria-label="Basic example">
-                  <button type="button" className="btn btn-secondary">Yes</button>
-                  <button type="button" className="btn btn-secondary">No</button>
-                </div>
+                <Form.Label className="text">May we have permission to photograph your child for promotional purposes?</Form.Label>
+
+                <Form.Check
+                    type='radio'
+                    label='Yes'
+                    value={true}
+                    name='photoPermission'
+                    onChange={onChangeHandler}>
+                </Form.Check>
+                <Form.Check
+                    type='radio'
+                    label='No'
+                    value={false}
+                    name='photoPermission'
+                    onChange={onChangeHandler}>
+                </Form.Check>
                 </Form.Group>
               </Col>
-            </Row>
-            <Button variant="primary" type="submit">Submit</Button>
+            </Row> 
+            <Button variant="primary" type="button" onClick={()=> console.log(formData)}>Submit</Button>
           </Form>
         </Container>
       </header>
     </div>
   )
 }
-
 export default App;
