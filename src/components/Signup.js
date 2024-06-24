@@ -1,5 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from 'react';
+// import { useParams, useNavigate } from "react-router-dom";
 import { Container, Row, Col, Form, Button, Card } from "react-bootstrap"
 
 function Signup() {
@@ -21,23 +22,12 @@ function Signup() {
     photoPermission: ''
   })
 
-  // const [choice, setChoice] = useState(true);
-
   const onChangeHandler = (event) =>{
     setFormData(()=>({
       ...formData,
       [event.target.name]: event.target.value 
     }))
   }
-
-  // const buttonClickHandler = (event) =>{
-  //   if (event.target.value === "yes") return "yes";
-  //   else return "no";
-  // }
-
-  // const onSubmitHandler = (event) =>{
-  //   console.log(event)
-  // }
 
   return (
     <div className="kidForm">

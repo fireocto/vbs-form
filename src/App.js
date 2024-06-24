@@ -7,13 +7,6 @@ import NoPage from './pages/NoPage'
 
 
 function App() {
-
-  const [backendData, setBackendData] = useState()
-
-  useEffect(() => {
-    
-  })
-
   return (
     <div>
       <BrowserRouter>
@@ -29,4 +22,6 @@ function App() {
 
   )
 }
+
+
 export default App
